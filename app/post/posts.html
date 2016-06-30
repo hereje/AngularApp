@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">Panel heading</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>user</th>
+				<th>Post title</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="post in $scope.posts">
+				<th scope="row">{{post.id}}</th>
+				<td>{{post.userId}}</td>
+				<td>{{post.title|}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
