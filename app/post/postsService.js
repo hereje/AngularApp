@@ -1,19 +1,19 @@
-angular.module('resarcimientoWebApp').service('postsService', function($http, $q) {
+angular.module('application').service('postsService', function($http, $q) {
 	return {
 		getPosts: function() {
-            return $http.jsonp('http://jsonplaceholder.typicode.com/posts').then(
-	    		function(response) {
+            return $http.get('http://jsonplaceholder.typicode.com/posts').then(
+	    		function success(response) {
 					//prevent get non json objects
 	    			if (typeof response.data === 'object') {
 	    				// successful response
-	    				return response.data;
+	    				return response;
 	    			} else {
 	    				// invalid response
-	    				return $q.reject(response.data);
+	    				return $q.reject(response);
 	    			}
-				}, function(response) {
+				}, function error(response) {
 					// something went wrong
-				    return $q.reject(response.data);
+				    return $q.reject(response);
 				}
            );
         }
