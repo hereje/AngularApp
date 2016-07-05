@@ -17,33 +17,53 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	
+	<!-- AngularJs -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-resource.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
 	
 	<script type="text/javascript" src="app/app.js"></script>
-	<script type="text/javascript" src="app/post/postsService.js"></script>
+	<script type="text/javascript" src="app/post/Post.js"></script>
 	<script type="text/javascript" src="app/post/PostCtrl.js"></script>
 	<script type="text/javascript" src="app/photos/PhotoCtrl.js"></script>
 	<script type="text/javascript" src="app/photos/photoService.js"></script>
+	<script type="text/javascript" src="app/shared/constants.js"></script>
+	<script type="text/javascript" src="app/repository/RepositoryListCtrl.js"></script>
+	<script type="text/javascript" src="app/repository/repositoryService.js"></script>
 	<script type="text/javascript" src="app/shared/progressbar/progressbar.js"></script>
+	<script type="text/javascript" src="app/shared/interceptors.js"></script>
 </head>
 <body>
 	<!-- progressbar -->
-		<div class="modal fade" role="dialog" aria-hidden="true" progressbar></div>
+		<div progressbar></div>
 	<!--/ progressbar -->
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-md-2">
-			  <ul class="nav nav-sidebar">
+	<nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Demo - Angular app</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
 				<!-- ui-sref-active adds a css class when element is clicked -->
 				<!-- ui-sref sets the route  -->
 				<li ui-sref-active="active"><a ui-sref="posts">posts</a></li>
 				<li ui-sref-active="active"><a ui-sref="photos">Photos</a></li>
-			  </ul>
-			</div>
+				<li ui-sref-active="active"><a ui-sref="repositories">Repositories</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+		<div class="row-fluid">
 			<!-- ui-view is an ui.router attribute that defines the place where routes or states will be printed -->
-			<div class="col-sm-9 col-md-10" ui-view autoscroll="true">
+			<div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" ui-view autoscroll="true">
 			  <h1 class="page-header">Dashboard</h1>
 			</div>
 		</div>

@@ -7,9 +7,9 @@
 /*Module and dependencies */
 angular.module('application', [
 // angularJs components
-'ui.router', 'ngAnimate'
+'ui.router', 'ngAnimate', 'ngResource',
 // application components
-
+'interceptors', 'constants'
  ]);
 
 // Disable debug
@@ -40,7 +40,19 @@ angular
 								url: '/photos',
 								templateUrl: 'app/photos/PhotoList.html',
 								controller: 'PhotoCtrl'
-							});
+							})
+							.state('repositories',{
+								url: '/repositories',
+								templateUrl: 'app/repository/repositoryList.html',
+								controller: 'RepositoryListCtrl'
+							})
+							.state('repositories.repository',{
+								url: '/repositories/:id',
+								templateUrl: 'app/repository/repository.html',
+								controller: 'RepositoryCtrl'
+							})
+							;
+							
 				});
 
 angular

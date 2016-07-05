@@ -1,11 +1,14 @@
 angular.module('application').controller('PostCtrl',
-		['$scope','$log', '$state','postsService', function($scope, $log, $state, postsService) {
+		['$scope','$log', '$state','Post', function($scope, $log, $state, Post) {
 			$log.info("Executing controller: PostCtrl");
 			$scope.posts = [];
-				postsService.getPosts().then(
-				function(response){
-					$log.log("Getting posts");
-					$scope.posts = response.data;
+			$scope.posts = Post.query(); //using REST
+			$scope.deletePost = function(id){
+				var deleteItem = confirm("Delete item?"); //Using javascript confirm
+				if(deleteItem){
+					var post = new Post();
+					post.id= id;
+					var itemDeleted = post.$delete(); //({id: post.id});
 				}
-				);
+			};
 		} ]);

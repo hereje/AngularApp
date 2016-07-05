@@ -15,12 +15,17 @@ function requestsInterceptor($log, $q) {
 		},
 
 		response : function(res) {
+			if(res.data.stat === "fail"){
+				$log.error(res);
+				return $q.reject(res);
+			}
 			return res;
 		},
 
 		responseError : function(res) {
 			$log.error("Response Error", res);
 			//handling http errors
+			alert(res);
 			return $q.reject(res);
 		}
 	}

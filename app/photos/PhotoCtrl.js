@@ -5,7 +5,11 @@ angular.module('application').controller('PhotoCtrl',
 			$scope.tags="";
 			$scope.photos = null;
 				$scope.search = function(){
-					$log.info("Searching photos with tag: "+ $scope.tag);
+					if(!$scope.tags){
+						alert("Provide at least one tag");
+						return;
+					}
+					$log.info("Searching photos with tag: "+ $scope.tags);
 					photoService.search($scope.tags).then(function(response){
 						$log.info("search complete");
 						$scope.photos = response.data.photos.photo; //get photo array
