@@ -1,10 +1,9 @@
-angular.module('application').service('photoService', function($http, $q, FLICKR) {
+angular.module('application').service('repositoryService', function($http, $q) {
+	var url_endpoint = "https://api.github.com";
 	return {
-		search : function (tags){
+		search : function (name){
 			//TODO: Inject general values
-			var params  = FLICKR;
-			params.tags = tags; //search criteria
-			return $http.get("https://api.flickr.com/services/rest/?method=flickr.photos.search",{params: params}).then(
+			return $http.get(url_endpoint + "/search/repositories",{ params: {"q": name} }).then(
 			function success(response){
 				//prevent get non json objects
 				if (typeof response.data === 'object') {
@@ -21,10 +20,9 @@ angular.module('application').service('photoService', function($http, $q, FLICKR
 			);
 		},
 		
-		getRecent: function() {
-			//TODO: Inject general values
-			var params =  FLICKR;
-            return $http.get("https://api.flickr.com/services/rest/?method=flickr.photos.getRecent",{params: params}).then(
+		getRepository: function(params) {
+			//TODO: Implement function
+            return $http.get(url_endpoint + "").then(
 	    		function success(response) {
 					//prevent get non json objects
 	    			if (typeof response.data === 'object') {
@@ -42,3 +40,5 @@ angular.module('application').service('photoService', function($http, $q, FLICKR
         }
     };
 });
+
+

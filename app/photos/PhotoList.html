@@ -5,14 +5,12 @@
 		  <div class="form-group">
 			<input type="text" class="form-control" placeholder="Write comma delimited tags" ng-model="tags" />
 			<button type="button" class="btn btn-primary" ng-click="search()">search</button>
-			<button type="button" class="btn btn-default" ng-click="getRecentPhotos()">Get recent</button>
-			<button type="button" class="btn btn-danger" ng-click="clear()">search</button>
+			<button type="button" class="btn btn-info" ng-click="getRecentPhotos()">Get recent</button>
+			<button type="button" class="btn btn-default" ng-click="clear()">clear</button>
 		  </div>
 		</form>
 	</div>
 </div>
 <div class="row" ng-show="photos">
-	<div class="">
-		<img ng-src="{{getUrlImage(photo)}}" class="col-sm-6 col-md-4 col-lg-3 img-thumbnail" alt="{{photo.title}}" ng-repeat="photo in photos"/>
-	</div>
+	<img ng-src="{{getUrlImage(photo)}}" class="col-sm-6 col-md-4 col-lg-3 img-thumbnail" alt="{{photo.title}}" ng-repeat="photo in photos"/>
 </div>

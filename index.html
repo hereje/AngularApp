@@ -26,11 +26,15 @@
 	<script type="text/javascript" src="app/post/PostCtrl.js"></script>
 	<script type="text/javascript" src="app/photos/PhotoCtrl.js"></script>
 	<script type="text/javascript" src="app/photos/photoService.js"></script>
+	<script type="text/javascript" src="app/shared/constants.js"></script>
+	<script type="text/javascript" src="app/repository/RepositoryListCtrl.js"></script>
+	<script type="text/javascript" src="app/repository/repositoryService.js"></script>
 	<script type="text/javascript" src="app/shared/progressbar/progressbar.js"></script>
+	<script type="text/javascript" src="app/shared/interceptors.js"></script>
 </head>
 <body>
 	<!-- progressbar -->
-		<div class="modal fade" role="dialog" aria-hidden="true" progressbar></div>
+		<div progressbar></div>
 	<!--/ progressbar -->
 	<div class="container-fluid">
 		<div class="row">
@@ -40,6 +44,7 @@
 				<!-- ui-sref sets the route  -->
 				<li ui-sref-active="active"><a ui-sref="posts">posts</a></li>
 				<li ui-sref-active="active"><a ui-sref="photos">Photos</a></li>
+				<li ui-sref-active="active"><a ui-sref="repositories">Repositories</a></li>
 			  </ul>
 			</div>
 			<!-- ui-view is an ui.router attribute that defines the place where routes or states will be printed -->
