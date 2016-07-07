@@ -7,7 +7,15 @@
 /*Module and dependencies */
 angular.module('application', [
 // angularJs components
+<<<<<<< HEAD
 'ui.router', 'ngAnimate', 'ngResource',
+=======
+<<<<<<< HEAD
+'ui.router', 'ngAnimate', 'ngResource',
+=======
+'ui.router', 'ngAnimate',
+>>>>>>> 9d5dfa9f25b29743bc37797b57097c976ab2e887
+>>>>>>> 2b3beec333c9e6c0d9dffcd206a25a5a10d95354
 // application components
 'interceptors', 'constants'
  ]);
