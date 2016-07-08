@@ -10,7 +10,7 @@ function requestsInterceptor($log, $q) {
 		},
 
 		requestError : function(request) {
-			$log.error("Request Error", request);
+			$log.warn("Request Error", request);
 			return $q.reject(request); //reject promise
 		},
 
@@ -23,9 +23,14 @@ function requestsInterceptor($log, $q) {
 		},
 
 		responseError : function(res) {
-			$log.error("Response Error", res);
 			//handling http errors
-			alert(res);
+			if (typeof res.data === 'object') {
+				$log.warn(res);
+				alert(JSON.stringify(res));
+			}
+			else{
+				alert(res);
+			}
 			return $q.reject(res);
 		}
 	}

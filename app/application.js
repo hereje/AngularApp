@@ -29,13 +29,11 @@ angular
 					$urlRouterProvider.otherwise("/");
 					/*state definition, here you can define single and nested states */
 					$stateProvider
-							.state(
-									'posts',
-									{
-										url : '/posts', //url to match
-										templateUrl : 'app/post/posts.html', //view
-										controller : 'PostCtrl' //controller
-									})
+							.state('posts',{
+									url : '/posts', //url to match
+									templateUrl : 'app/post/posts.html', //view
+									controller : 'PostCtrl' //controller
+							})
 							.state('photos',{
 								url: '/photos',
 								templateUrl: 'app/photos/PhotoList.html',

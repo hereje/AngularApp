@@ -3,7 +3,9 @@
 	<div class="panel-body">
 		<form class="navbar-form navbar-left" role="search">
 		  <div class="form-group">
+			<!--ng-model: defines a model -->
 			<input type="text" class="form-control" placeholder="Write search terms" ng-model="name" />
+			<!-- ng-click: binds a method -controller- with an event in the view -->
 			<button type="button" class="btn btn-primary" ng-click="search()">search</button>
 			<button type="button" class="btn btn-default" ng-click="clear()">clear</button>
 		  </div>
@@ -24,7 +26,7 @@
 			<th><a ui-sref-active="active">{{repository.id}}</a></th>
 			<td>{{repository.name}}</td>
 			<td>{{repository.description}}</td>
-			<td><a href="{{repository.html_url}}" target="_blank">{{repository.html_url}}</a></td>
+			<td><a href="{{repository.html_url}}" target="_blank" style="cursor: pointer;">{{repository.html_url}}</a></td>
 		</tr>
 	</tbody>
 </table>

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<!--ng-app : Directive to auto-bootstrap angular application -->
 <html lang="es" ng-app="application">
 <head>
 	<meta charset="utf-8">
@@ -17,31 +19,49 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	
-	<!-- AngularJs -->
+	<!-- AngularJs  core -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+	<!-- resource module -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-resource.js"></script>
+	<!-- animation module -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"></script>
+	<!-- ui-router module: SPA advanced routing framework. SPAs with hierarchical tree of states  -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
 	
-	<script type="text/javascript" src="app/app.js"></script>
-	<script type="text/javascript" src="app/post/Post.js"></script>
+	<!-- main module -->
+	<script type="text/javascript" src="app/application.js"></script>
+	
+	<!-- Folder structure according to concerns -->
+	
+	<!-- Post scripts -->
+	<script type="text/javascript" src="app/post/Posts.js"></script>
 	<script type="text/javascript" src="app/post/PostCtrl.js"></script>
+	
+	<!-- photo scripts -->
 	<script type="text/javascript" src="app/photos/PhotoCtrl.js"></script>
 	<script type="text/javascript" src="app/photos/photoService.js"></script>
-	<script type="text/javascript" src="app/shared/constants.js"></script>
+
+	<!-- Repository scripts -->
 	<script type="text/javascript" src="app/repository/RepositoryListCtrl.js"></script>
-	<script type="text/javascript" src="app/repository/repositoryService.js"></script>
+	<script type="text/javascript" src="app/repository/repositoryService.js"></script>	
+	
+	<!-- common functions and utilities -->
+	<!-- static values -->
+	<script type="text/javascript" src="app/shared/constants.js"></script>
+	<!-- directive -->
 	<script type="text/javascript" src="app/shared/progressbar/progressbar.js"></script>
+	<!-- special functions: http interceptor -->
 	<script type="text/javascript" src="app/shared/interceptors.js"></script>
 </head>
 <body>
-	<!-- progressbar -->
-		<div progressbar></div>
-	<!--/ progressbar -->
+	<!-- directive in action -->
+	<div progressbar></div>
 	<div class="container-fluid">
+	<!-- navigation bar -->
 	<nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
+		  <!-- button for small devices -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -51,20 +71,22 @@
             <a class="navbar-brand" href="#">Demo - Angular app</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
+			<!--  responsive menu -->
             <ul class="nav navbar-nav">
-				<!-- ui-sref-active adds a css class when element is clicked -->
+				<!-- ui-sref-active adds a css class when element is selected -->
 				<!-- ui-sref sets the route  -->
 				<li ui-sref-active="active"><a ui-sref="posts">posts</a></li>
 				<li ui-sref-active="active"><a ui-sref="photos">Photos</a></li>
 				<li ui-sref-active="active"><a ui-sref="repositories">Repositories</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+          </div>
+        </div>
       </nav>
 		<div class="row-fluid">
-			<!-- ui-view is an ui.router attribute that defines the place where routes or states will be printed -->
+			<!-- ui-view is an ui.router attribute that defines the place where routes or states will be placed -->
 			<div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" ui-view autoscroll="true">
-			  <h1 class="page-header">Dashboard</h1>
+				<!-- This content will be "replaced" when a state is active -->
+				<h1 class="page-header">Dashboard</h1>
 			</div>
 		</div>
 	</div>

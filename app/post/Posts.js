@@ -1,4 +1,4 @@
-angular.module('application').factory('Post', function($resource) {
+angular.module('application').factory('Posts', function($resource) {
 	return $resource('http://jsonplaceholder.typicode.com/posts/:id',{},{
 		query: {
 			method: 'GET',
