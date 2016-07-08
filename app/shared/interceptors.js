@@ -5,7 +5,7 @@ function requestsInterceptor($log, $q) {
 	return {
 		request : function(request) {
 			// Set global timeout, value given in milliseconds
-			request.timeout = 2*60*1000; //2 senconds
+			request.timeout = 2*60*1000; //2 minutes
 			return request;
 		},
 
@@ -15,9 +15,11 @@ function requestsInterceptor($log, $q) {
 		},
 
 		response : function(res) {
-			if(res.data.stat === "fail"){
-				$log.error(res);
-				return $q.reject(res);
+			if(res.data.stat){ //Handling Flickr API errors
+				if(res.data.stat == "fail"){
+					alert(JSON.stringify(res.data.message));
+					return $q.reject(res);
+				}
 			}
 			return res;
 		},

@@ -12,21 +12,25 @@
 		</form>
 	</div>
 </div>
-<table class="table table-striped table-bordered table-responsive" ng-show="repositories">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>name</th>
-			<th>Description</th>
-			<th>URL</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr  ng-repeat="repository in repositories">
-			<th><a ui-sref-active="active">{{repository.id}}</a></th>
-			<td>{{repository.name}}</td>
-			<td>{{repository.description}}</td>
-			<td><a href="{{repository.html_url}}" target="_blank" style="cursor: pointer;">{{repository.html_url}}</a></td>
-		</tr>
-	</tbody>
-</table>
+<!-- Example of two-way data binding -->
+<div>Search criteria: {{name}}</div>
+<div class="table-responsive" ng-show="repositories">
+	<table class="table table-condensed table-hover table-bordered table-responsive">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>name</th>
+				<th>Description</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr  ng-repeat="repository in repositories">
+				<th><a ui-sref-active="active">{{repository.id}}</a></th>
+				<td>{{repository.name}}</td>
+				<td>{{repository.description}}</td>
+				<td><a href="{{repository.html_url}}" target="_blank" style="cursor: pointer;">{{repository.html_url}}</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

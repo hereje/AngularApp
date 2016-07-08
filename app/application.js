@@ -29,27 +29,30 @@ angular
 					$urlRouterProvider.otherwise("/");
 					/*state definition, here you can define single and nested states */
 					$stateProvider
-							.state('posts',{
-									url : '/posts', //url to match
-									templateUrl : 'app/post/posts.html', //view
-									controller : 'PostCtrl' //controller
-							})
-							.state('photos',{
-								url: '/photos',
-								templateUrl: 'app/photos/PhotoList.html',
-								controller: 'PhotoCtrl'
-							})
-							.state('repositories',{
-								url: '/repositories',
-								templateUrl: 'app/repository/repositoryList.html',
-								controller: 'RepositoryListCtrl'
-							})
-							.state('repositories.repository',{
-								url: '/repositories/:id',
-								templateUrl: 'app/repository/repository.html',
-								controller: 'RepositoryCtrl'
-							})
-							;
+						.state('home',{
+							url: '/'
+						})
+						.state('posts',{
+								url : '/posts', //url to match
+								templateUrl : 'app/post/posts.html', //view
+								controller : 'PostCtrl' //controller
+						})
+						.state('photos',{
+							url: '/photos',
+							templateUrl: 'app/photos/PhotoList.html',
+							controller: 'PhotoCtrl'
+						})
+						.state('repositories',{
+							url: '/repositories',
+							templateUrl: 'app/repository/repositoryList.html',
+							controller: 'RepositoryListCtrl'
+						})
+						.state('repositories.repository',{
+							url: '/repositories/:id',
+							templateUrl: 'app/repository/repository.html',
+							controller: 'RepositoryCtrl'
+						})
+						;
 							
 				});
 
@@ -59,7 +62,7 @@ angular
 		.run(
 				function($log, $state) {
 					// Redirect to main page
-					//$state.redirectTo("/");
+					$state.go('home');
 					$log.info("Running application");
 			});
 					
