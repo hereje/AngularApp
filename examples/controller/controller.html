@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<!--ng-app : Directive to auto-bootstrap angular application -->
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Bootstraping application</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	
+	<!-- AngularJs  core -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="app"> <!-- Application must have a name -->
+	<div ng-controller="HelloController">
+	<input type="text" ng-model="name" />
+		<p>Hello {{name}}!</p>
+		<p>Welcome message: {{welcomeText}}</p>
+	</div>
+	<!-- Using the same controller -->
+	<div ng-controller="HelloController">
+	<input type="text" ng-model="name" />
+		<p>Hello {{name}}!</p>
+		<p>Welcome message: {{welcomeText}}</p>
+	</div>
+	<div ng-controller="HelloController as ctrl">
+	<input type="text" ng-model="name" />
+		<p>Hello {{name}}!</p>
+		<p>Welcome message: {{welcomeText}}</p>
+		<!-- This can't be reached because ctrl.$scope does not exists. -->
+		<p>Welcome message: {{ctrl.$scope.welcomeText}}</p>
+		<p>Welcome message: {{ctrl.welcomeText}}</p>
+	</div>
+</body>
+</html>

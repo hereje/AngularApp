@@ -35,7 +35,13 @@ angular
 						.state('posts',{
 								url : '/posts', //url to match
 								templateUrl : 'app/post/posts.html', //view
-								controller : 'PostCtrl' //controller
+								controller : 'PostsCtrl',
+								controllerAs: 'postsCtrl' //Using controllerAs evades the use of $scope
+						})
+						.state('posts.post',{
+							url: '/posts/:id',
+							templateUrl: 'app/post/post.html',
+							controller: 'postItemCtrl'
 						})
 						.state('photos',{
 							url: '/photos',

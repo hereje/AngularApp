@@ -9,7 +9,7 @@ angular.module('application').controller('RepositoryListCtrl',
 						alert("Provide a search term");
 						return;
 					}
-					$scope.repositories = null; //clear array on every request
+					$scope.repositories = null; //clear array before request
 					$log.info("Searching repositories with name: "+ $scope.name);
 					repositoryService.search($scope.name).then(function(response){
 						$log.info("search complete");
@@ -17,7 +17,7 @@ angular.module('application').controller('RepositoryListCtrl',
 							alert("No data found!");
 							return;
 						}
-						$scope.repositories = response.data.items; //get photo array
+						$scope.repositories = response.data.items; //get array
 					});
 				};
 				
