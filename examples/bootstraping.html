@@ -10,7 +10,20 @@
 </head>
 <body ng-app>
 	<div>
-		Hello {{"world"}}!
+	<!-- Using angular expressions -->
+		<p>Hello {{"world"}}!</p>
+		<p>sum 2+3 = {{2+3}}</p>
+		<p>Price: {{1225 | currency }}</p>
+		<p>Price with tax: {{1225*1.16 | currency }}</p>
+		<p>{{{"app": "angularjs"} | json}}</p>
+		<!-- empty object -->
+		<p>{{ {} }}</p>
+		<p>null : {{ null }}</p>
+		<p>This property does not exist : {{ price }}</p>
+		<!-- the reserved word: undefined -->
+		<p>Undefined : {{ undefined }}</p>
+		<!-- This is a string -->
+		<p>Undefined : {{ "undefined" }}</p>
 	</div>
 </body>
 </html>
