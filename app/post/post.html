@@ -2,15 +2,20 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">Edit post</div>
 	<div class="panel-body">
-		<form name="form" class="form" novalidate>
+		<form name="postForm" class="form" ng-submit="save(postForm.$valid)" ng-class="{ 'has-error' : postForm.$invalid }"  novalidate>
 		  <div class="form-group">
-			<input type="text" class="form-control" ng-model="post.title" required />
+			<label>Title</label>
+			<input type="text" name="title" class="form-control" ng-model="post.title" ng-minlength="5" required />
+			<p ng-show="postForm.title.$error.minlength" class="help-block">title is too short.</p>
+			<p ng-show="postForm.title.$invalid && !postForm.title.$pristine" class="help-block">A title is required</p>
 		  </div>
 		  <div class="form-group">
-			<textarea class="form-control" ng-model="post.body" required></textarea>
+			<label>Body</label>
+			<textarea class="form-control" name="body" ng-model="post.body" required></textarea>
+			<p ng-show="postForm.body.$invalid && !postForm.body.$pristine" class="help-block">Provide a post body</p>
 		  </div>
 		  <div class="form-group">
-			<button type="button" class="btn btn-primary" ng-click="save()">save</button>
+			<button type="submit" class="btn btn-primary" ng-disabled="postForm.$invalid">save</button>
 			<button type="button" class="btn btn-default" ng-click="cancel()">cancel</button>
 		  </div>
 		</form>
