@@ -8,16 +8,16 @@ angular.module('application').controller('PostsCtrl',
 				var deleteItem = confirm("Delete item?"); //Using javascript confirm
 				if(deleteItem){
 					$log.info("Deleting post with id: " + post.id);
-					Posts.delete({id: post.id}, function(){
+					post.$delete(function(){
 						//Remove item from array
 						var index = me.posts.indexOf(post);
 						if(index>=0)
 							me.posts.splice(index,1);
-						alert("Post with id: " + post.id + " has been deleted");
+						alert("The post has been deleted");
 					});
 				}
 			};
 			this.edit = function(post){
-				$state.go('posts.post');
+				$state.go('posts.post',{id: post.id});
 			};
 		} ]);

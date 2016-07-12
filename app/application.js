@@ -12,14 +12,6 @@ angular.module('application', [
 'interceptors', 'constants'
  ]);
 
-// Disable debug
-/*
-angular.module('application').config(
-		[ '$compileProvider', function($compileProvider) {
-			$compileProvider.debugInfoEnabled(false);
-		} ]);
-		*/
-
 // configure our routes
 angular
 		.module('application')
@@ -39,9 +31,13 @@ angular
 								controllerAs: 'postsCtrl' //Using controllerAs evades the use of $scope
 						})
 						.state('posts.post',{
-							url: '/posts/:id',
-							templateUrl: 'app/post/post.html',
-							controller: 'postItemCtrl'
+							url: '^/posts/:id',
+							views: {
+								'@': {
+									templateUrl: 'app/post/post.html',
+									controller: 'PostItemCtrl'
+								}
+							}
 						})
 						.state('photos',{
 							url: '/photos',
@@ -52,23 +48,14 @@ angular
 							url: '/repositories',
 							templateUrl: 'app/repository/repositoryList.html',
 							controller: 'RepositoryListCtrl'
-						})
-						.state('repositories.repository',{
-							url: '/repositories/:id',
-							templateUrl: 'app/repository/repository.html',
-							controller: 'RepositoryCtrl'
-						})
-						;
-							
+						});
 				});
 
 angular
 		.module('application')
-		//this function runs one time , when the application starts - i.e. when SPA is loaded-
-		.run(
-				function($log, $state) {
-					// Redirect to main page
-					$state.go('home');
-					$log.info("Running application");
-			});
-					
+		//this function runs once, when the application starts - i.e. when SPA is loaded-
+		.run(function($log, $state) {
+			// Redirect to main page
+			$state.go('home');
+			$log.info("Running application");
+		});

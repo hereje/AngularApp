@@ -1,6 +1,18 @@
 <!-- template -->
 <div class="panel panel-primary">
-	<div class="panel-heading">Post item</div>
-	<div>{{post.item.id}}</div>
-	<button></button>
+	<div class="panel-heading">Edit post</div>
+	<div class="panel-body">
+		<form name="form" class="form" novalidate>
+		  <div class="form-group">
+			<input type="text" class="form-control" ng-model="post.title" required />
+		  </div>
+		  <div class="form-group">
+			<textarea class="form-control" ng-model="post.body" required></textarea>
+		  </div>
+		  <div class="form-group">
+			<button type="button" class="btn btn-primary" ng-click="save()">save</button>
+			<button type="button" class="btn btn-default" ng-click="cancel()">cancel</button>
+		  </div>
+		</form>
+	</div>
 </div>
