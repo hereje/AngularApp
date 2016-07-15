@@ -1,4 +1,7 @@
-angular.module('application').service('photoService', function($http, $q, FLICKR) {
+(function(){
+	"use strict";
+angular.module('application').service('photoService',['$http', '$q', 'FLICKR' ,photoService]);
+function photoService($http, $q, FLICKR) {
 	return {
 		search : function (tags){
 			//TODO: Inject general values
@@ -41,4 +44,5 @@ angular.module('application').service('photoService', function($http, $q, FLICKR
            );
         }
     };
-});
+}
+})();

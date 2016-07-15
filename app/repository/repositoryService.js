@@ -1,4 +1,7 @@
-angular.module('application').service('repositoryService', function($http, $q) {
+(function(){
+	"use strict";
+angular.module('application').service('repositoryService',['$http', '$q',repositoryService]);
+function repositoryService($http, $q) {
 	var url_endpoint = "https://api.github.com";
 	return {
 		search : function (name){
@@ -39,6 +42,5 @@ angular.module('application').service('repositoryService', function($http, $q) {
            );
         }
     };
-});
-
-
+}
+})();

@@ -1,5 +1,8 @@
+(function(){
+	"use strict";
 angular.module('application').controller('RepositoryListCtrl',
-		['$scope','$log','repositoryService', function($scope, $log, repositoryService) {
+		['$scope','$log','repositoryService', RepositoryListCtrl]);
+		function RepositoryListCtrl($scope, $log, repositoryService) {
 			$log.info("Executing controller: RepositoryListCtrl");
 			//model attributes
 			$scope.name="";
@@ -25,4 +28,5 @@ angular.module('application').controller('RepositoryListCtrl',
 					$scope.name = null;
 					$scope.repositories = null;
 				};
-		} ]);
+		}
+})();

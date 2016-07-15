@@ -1,5 +1,8 @@
+(function(){
+	"use strict";
 angular.module('application').controller('PostsCtrl',
-		['$log', '$state','Posts', function($log, $state, Posts) {
+		['$log', '$state','Posts', PostsCtrl]);
+		function PostsCtrl($log, $state, Posts) {
 			$log.info("Executing controller: PostsCtrl");
 			this.posts = [];
 			this.posts = Posts.query(); //using REST; the posts array will be populated when operation finishes.
@@ -20,4 +23,5 @@ angular.module('application').controller('PostsCtrl',
 			this.edit = function(post){
 				$state.go('posts.post',{id: post.id});
 			};
-		} ]);
+		}
+})();

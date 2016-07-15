@@ -1,5 +1,7 @@
-angular.module('application').controller('PhotoCtrl',
-		['$scope','$log','photoService', function($scope, $log, photoService) {
+(function(){
+	"use strict";
+angular.module('application').controller('PhotoCtrl',['$scope','$log','photoService', PhotoCtrl]);
+		function PhotoCtrl($scope, $log, photoService) {
 			$log.info("Executing controller: PhotoCtrl");
 			//model attributes
 			$scope.tags="";
@@ -34,4 +36,5 @@ angular.module('application').controller('PhotoCtrl',
 					var url ="https://farm" + photo.farm + ".staticflickr.com/" + photo.server +"/" + photo.id +"_" +  photo.secret + "_m.jpg";
 					return url;
 				};
-		} ]);
+		}
+})();

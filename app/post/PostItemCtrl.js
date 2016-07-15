@@ -1,5 +1,8 @@
+(function(){
+	"use strict";
 angular.module('application').controller('PostItemCtrl',
-		['$scope','$log', '$state', '$stateParams', 'Posts', function($scope, $log, $state, $stateParams, Posts) {
+		['$scope','$log', '$state', '$stateParams', 'Posts', PostItemCtrl]);
+		function PostItemCtrl($scope, $log, $state, $stateParams, Posts) {
 			$log.info("Executing controller: PostItemCtrl");
 			$scope.post = Posts.get({id: $stateParams.id});
 			$scope.save=function(isValid){
@@ -16,4 +19,5 @@ angular.module('application').controller('PostItemCtrl',
 				$log.info("Return to posts list");
 				$state.go('^');
 			};
-		} ]);
+		}
+})();

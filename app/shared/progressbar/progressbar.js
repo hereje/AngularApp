@@ -1,5 +1,8 @@
+(function(){
+	"use strict";
 angular.module('application').directive('progressbar',
-		[ '$http', '$timeout', '$log', function($http, $timeout, $log) {
+		[ '$http', '$timeout', '$log', progressbar]);
+		function progressbar($http, $timeout, $log) {
 			return {
 				restrict : 'A', //restriction to attributes
 				templateUrl : 'app/shared/progressbar/progressbar.html',
@@ -24,4 +27,5 @@ angular.module('application').directive('progressbar',
 					});
 				}
 			};
-		} ]);
+		}
+})();
