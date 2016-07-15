@@ -15,12 +15,6 @@ function requestsInterceptor($log, $q) {
 		},
 
 		response : function(res) {
-			if(res.data.stat){ //Handling Flickr API errors
-				if(res.data.stat == "fail"){
-					alert(JSON.stringify(res.data.message));
-					return $q.reject(res);
-				}
-			}
 			return res;
 		},
 
