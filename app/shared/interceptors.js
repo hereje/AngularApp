@@ -19,11 +19,9 @@
 				$log.warn("Request Error", request);
 				return $q.reject(request); //reject promise
 			},
-
 			response : function (res) {
 				return res;
 			},
-
 			responseError : function (res) {
 				//handling http errors
 				if (typeof res.data === 'object') {
